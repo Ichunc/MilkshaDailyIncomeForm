@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迷客夏每日報表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-group {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px; /* 縮窄整體寬度 */
+            margin: auto;
+        }
+        .heading {
+            text-align: center;
+            color: #333;
+        }
+        .form-field {
+            display: flex;
+            justify-content: center; /* 將內容置中 */
+            align-items: center;
+            margin-bottom: 10px; /* 調整間距 */
+        }
+        label {
+            margin-right: 5px; /* 減小間距 */
+            font-weight: bold;
+            width: 150px; /* 統一標籤寬度 */
+            text-align: center; /* 右對齊 */
+        }
+        input[type="date"], input[type="number"] {
+            max-width: 150px; /* 日期欄位可以改寬 */
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            display: flex;
+            justify-content: center; /* 置中 */
+            margin-bottom: 15px;
+        }
+        .radio-group label {
+            margin: 0 5px; /* 縮小按鈕間距 */
+        }
+        button {
+            display: block;
+            width: 80%; /* 調整送出按鈕寬度 */
+            max-width: 400px; /* 可以限制最大寬度 */
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 auto; /* 置中按鈕 */
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #trash_tea {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px dashed #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<form method="post" action="https://script.google.com/macros/s/AKfycbzJIcrfQxBnpFuiMo6XZ_mp6txlwZjb-Ie-14tcTVxaCkC6mYzs8M2BT4W8eVjqn2Nt6A/exec">
+    
+  <div class="form-group">
+    <h2 class="heading">迷客夏縣府店每日報表</h2>
+
+    <div class="form-field">
+      <label for="today" class="date">今天日期</label>
+      <input type="date" id="today" class="floatLabel" name="今天日期">
+    </div>
+
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="班別" value="AM" id="AM" onclick="showContent()" checked> 早班
+      </label>
+      <label>
+        <input type="radio" name="班別" value="PM" id="PM" onclick="showContent()"> 晚班
+      </label>
+    </div>
+
+    <div class="form-field">
+      <label for="total_income">銷售總金額</label>
+      <input type="number" id="total_income" class="floatLabel" name="銷售總金額">
+    </div>
+    
+    <div class="form-field">
+      <label for="discount_amount">折扣金額</label>
+      <input type="number" id="discount_amount" class="floatLabel" name="折扣金額">
+    </div>
+
+    <div class="form-field">
+      <label for="voucher_amount">折讓金額</label>
+      <input type="number" id="voucher_amount" class="floatLabel" name="折讓金額">
+    </div>
+
+    <div class="form-field">
+      <label for="easy_card">悠遊卡</label>
+      <input type="number" id="easy_card" class="floatLabel" name="悠遊卡">
+    </div>
+
+    <div class="form-field">
+      <label for="line_pay">LinePay</label>
+      <input type="number" id="line_pay" class="floatLabel" name="LinePay">
+    </div>
+
+    <div class="form-field">
+      <label for="online_line_pay">線上LinePay</label>
+      <input type="number" id="online_line_pay" class="floatLabel" name="線上LinePay">
+    </div>
+
+    <div class="form-field">
+      <label for="street_pay">街口支付</label>
+      <input type="number" id="street_pay" class="floatLabel" name="街口支付">
+    </div>
+
+    <div class="form-field">
+      <label for="all_pay">全支付</label>
+      <input type="number" id="all_pay" class="floatLabel" name="全支付">
+    </div>
+
+    <div class="form-field">
+      <label for="full_win_pay">全盈支付</label>
+      <input type="number" id="full_win_pay" class="floatLabel" name="全盈支付">
+    </div>
+
+    <div class="form-field">
+      <label for="credit_card">你訂信用卡</label>
+      <input type="number" id="credit_card" class="floatLabel" name="訂信用卡">
+    </div>
+
+    <div class="form-field">
+      <label for="icash_pay">iCashPay</label>
+      <input type="number" id="icash_pay" class="floatLabel" name="iCashPay">
+    </div>
+
+    <div class="form-field">
+      <label for="food_panda">FoodPanda</label>
+      <input type="number" id="food_panda" class="floatLabel" name="FoodPanda">
+    </div>
+
+    <div class="form-field">
+      <label for="uber_eats">UberEats</label>
+      <input type="number" id="uber_eats" class="floatLabel" name="UberEats">
+    </div>
+
+    <div class="form-field">
+      <label for="discount_coupons">折價卷(張)</label>
+      <input type="number" id="discount_coupons" class="floatLabel" name="折價卷(張)">
+    </div>
+
+    <div class="form-field">
+      <label for="current_cash">錢櫃現有金額</label>
+      <input type="number" id="current_cash" class="floatLabel" name="錢櫃現有金額">
+    </div>
+
+    <div class="form-field">
+      <label for="shift_cash">交班現有金額</label>
+      <input type="number" id="shift_cash" class="floatLabel" name="交班現有金額">
+    </div>
+
+    <div id="trash_tea" style="display: none;">
+      <h3>報廢茶量</h3>
+      <div>填寫容量(克數)即可</div>
+      <div class="form-field">
+        <label for="big_tea">大正</label>
+        <input type="number" id="big_tea" class="floatLabel" name="大正">
+      </div>
+      <div class="form-field">
+        <label for="earl_grey">伯爵</label>
+        <input type="number" id="earl_grey" class="floatLabel" name="伯爵">
+      </div>
+      <div class="form-field">
+        <label for="na_cup">娜杯</label>
+        <input type="number" id="na_cup" class="floatLabel" name="娜杯">
+      </div>
+      <div class="form-field">
+        <label for="green_tea">綠茶</label>
+        <input type="number" id="green_tea" class="floatLabel" name="綠茶">
+      </div>
+      <div class="form-field">
+        <label for="clear_tea">清茶</label>
+        <input type="number" id="clear_tea" class="floatLabel" name="清茶">
+      </div>
+      <div class="form-field">
+        <label for="oolong">烏龍</label>
+        <input type="number" id="oolong" class="floatLabel" name="烏龍">
+      </div>
+      <div class="form-field">
+        <label for="pearl">珍珠</label>
+        <input type="number" id="pearl" class="floatLabel" name="珍珠">
+      </div>
+    </div>
+
+    <div>
+      <button type="submit" value="Submit">送出</button>
+    </div>
+  </div>
+</form>
+
+<script>
+    // Get the HTML elements by their IDs
+    const today = document.getElementById("today");
+    const DB = document.getElementById("fordebug");
+
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    today.value = formattedDate;
+
+
+    showContent()
+    function showContent() {
+      const pm_shift = document.getElementById("PM");
+      const trash_tea = document.getElementById("trash_tea");
+      const inputs = [
+        "big_tea", "earl_grey", "na_cup", "green_tea", "clear_tea", "oolong", "pearl"
+      ].map(id => document.getElementById(id));
+
+      if (pm_shift.checked){
+        trash_tea.style.display = "block";
+      } else {
+        trash_tea.style.display = "none";
+        inputs.forEach(input => input.value = 0); // 將所有報廢茶量的輸入設為0
+      }
+    }
+</script>
+
+</body>
+</html>
