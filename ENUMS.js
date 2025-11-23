@@ -1,0 +1,2 @@
+const INCOME_FORM_URL_DEV = "https://script.google.com/macros/s/AKfycbz9Bn4-epPFE4B3E0DOe5dc30VD5eQIDp0ZJ5JIMRR8/dev";
+const INCOME_FORM_URL_PUBLISH = "https://script.google.com/macros/s/AKfycbzfVlAo0BIzu3bxIL1YO0Chvw-zaOfrG_w9aoXh5fvvzjCsGvE41f9t4xp3olIbf-53JQ/exec";
