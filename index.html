@@ -35,38 +35,13 @@
     </div>
 
     <div class="form-field">
+      <label for="shift_cash">交班現有金額</label>
+      <input type="number" id="shift_cash" class="floatLabel" name="交班現有金額" oninput="caculateDifference()">
+    </div>
+
+    <div class="form-field">
       <label for="total_income">銷售總金額</label>
       <input type="number" id="total_income" class="floatLabel" name="銷售總金額">
-    </div>
-
-    <div class="form-field">
-      <label for="total_cup">銷售杯數</label>
-      <input type="number" id="total_cup" class="floatLabel" name="銷售杯數">
-    </div>
-    
-    <div class="form-field">
-      <label for="delivery_income">外送金額</label>
-      <input type="number" id="delivery_income" class="floatLabel" name="外送金額">
-    </div>
-
-    <div class="form-field">
-      <label for="nedin_delivery_income">你訂外送金額</label>
-      <input type="number" id="nedin_delivery_income" class="floatLabel" name="你訂外送金額">
-    </div>
-
-    <div class="form-field">
-      <label for="delivery_cup">外送杯數</label>
-      <input type="number" id="delivery_cup" class="floatLabel" name="外送杯數">
-    </div>
-
-    <div class="form-field">
-      <label for="nedin_delivery_cup">你訂外送杯數</label>
-      <input type="number" id="nedin_delivery_cup" class="floatLabel" name="你訂外送杯數">
-    </div>
-
-    <div class="form-field">
-      <label for="bottled_milk">瓶裝奶</label>
-      <input type="number" id="bottled_milk" class="floatLabel" name="瓶裝奶">
     </div>
 
     <div class="form-field">
@@ -140,13 +115,38 @@
     </div>
 
     <div class="form-field">
+      <label for="total_cup">銷售杯數</label>
+      <input type="number" id="total_cup" class="floatLabel" name="銷售杯數">
+    </div>
+        
+    <div class="form-field">
+      <label for="delivery_cup">外送杯數</label>
+      <input type="number" id="delivery_cup" class="floatLabel" name="外送杯數">
+    </div>
+
+    <div class="form-field">
+      <label for="nedin_delivery_cup">你訂外送杯數</label>
+      <input type="number" id="nedin_delivery_cup" class="floatLabel" name="你訂外送杯數">
+    </div>
+    
+    <div class="form-field">
+      <label for="delivery_income">外送金額</label>
+      <input type="number" id="delivery_income" class="floatLabel" name="外送金額">
+    </div>
+
+    <div class="form-field">
+      <label for="nedin_delivery_income">你訂外送金額</label>
+      <input type="number" id="nedin_delivery_income" class="floatLabel" name="你訂外送金額">
+    </div>
+
+    <div class="form-field">
       <label for="current_cash">錢櫃現有金額</label>
       <input type="number" id="current_cash" class="floatLabel" name="錢櫃現有金額" oninput="caculateDifference()">
     </div>
 
     <div class="form-field">
-      <label for="shift_cash">交班現有金額</label>
-      <input type="number" id="shift_cash" class="floatLabel" name="交班現有金額" oninput="caculateDifference()">
+      <label for="bottled_milk">瓶裝奶</label>
+      <input type="number" id="bottled_milk" class="floatLabel" name="瓶裝奶">
     </div>
 
     <div class="form-field">
@@ -215,7 +215,6 @@
 <script>
     // Get the HTML elements by their IDs
     const today = document.getElementById("today");
-    const DB = document.getElementById("fordebug");
 
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
